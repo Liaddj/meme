@@ -55,5 +55,5 @@ function setLineTxt(txt) {
 
 function setImg(imgId) {
     gMeme.selectedImgId = imgId
-    localStorage.setItem('selectedImgId', imgId)
+    localStorage.setItem('selectedMemeId', imgId)
 }

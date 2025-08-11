@@ -9,7 +9,7 @@ function onInit2() {
     gCtx = gElCanvas.getContext('2d')
     getgImg()
 
-    const imgId = localStorage.getItem('selectedImg+Id')
+    const imgId = localStorage.getItem('selectedImgId')
     if (imgId) gMeme.selectedImgId = +imgId
 
     renderMeme()
