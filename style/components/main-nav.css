@@ -1,0 +1,23 @@
+
+
+
+.main-nav .main-nav-list a {
+    text-decoration: none;
+    text-transform: uppercase;
+
+    color: var(--txt-color--1);
+
+    cursor: pointer;
+    transition: 0.2s;
+
+}
+
+
+.main-nav li>a:hover {
+    color: var(--hover-color--1);
+    box-shadow: inset 0px -1px 0px var(--hover-color--1);
+   
+}
+
+
+

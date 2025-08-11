@@ -1,0 +1,22 @@
+/* meme generato */
+.main-layout {
+    flex-direction: column;
+
+    align-items: center;
+
+}
+
+.editor {
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+
+    gap: 50px;
+    width: 90%;
+
+}
+
+
+/* gallery */
+
+.gallery-page-layout {
+  gap: 10px;
+}

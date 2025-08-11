@@ -6,13 +6,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Meme</title>
 
-    <link rel="stylesheet" href="style-meme/style/main.css">
+    <link rel="stylesheet" href="style/main.css">
 </head>
 
-<body onload="onInit()">
+<body  onload="onInit2()">
 
-    <header class="main-header">
-        <h1 class="title">Meme Generator</h1>
+     <header class="main-header full main-layout">
+        <div class="inner-container flex align-center">
+            <div class="logo">MEME GENERATOR</div>
+            <nav class="main-nav">
+                <ul class="main-nav-list clean-list flex">
+                    <li><a href="#">THE GENERATOR</a></li>
+                    <li><a href="#">GALLERY</a></li>
+                </ul>
+            </nav>
+            <!-- <button class="btn-toggle-menu" type="button" onclick="toggleMenu()">☰</button> -->
+        </div>
     </header>
     <div class="main-layout flex ">
 
@@ -34,9 +43,14 @@
 
 
 
+    <script src="js/localstorage.service.js"></script>
 
     <script src="js/meme-controller.js"></script>
     <script src="js/meme-service.js"></script>
+
+   <script src="js//js/gallery-controller.js"></script>
+    <script src="js//js/gallery-service.js"></script>
+
 
 </body>
 

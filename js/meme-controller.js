@@ -4,7 +4,7 @@ let gCtx
 let chooseImg
 
 
-function onInit() {
+function onInit2() {
     gElCanvas = document.querySelector('canvas')
     gCtx = gElCanvas.getContext('2d')
     renderMeme()
@@ -62,7 +62,10 @@ setLineTxt(txt)
 renderMeme()
 }
 
-
+function onSetImg() {
+    setImg()
+    renderMeme()
+}
 
 
 
