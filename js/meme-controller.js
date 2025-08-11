@@ -1,38 +1,52 @@
 'use strict'
 let gElCanvas
 let gCtx
-let chooseImg
+
 
 
 function onInit2() {
-    gElCanvas = document.querySelector('canvas')
+    gElCanvas = document.querySelector('.canvas')
     gCtx = gElCanvas.getContext('2d')
+    getgImg()
+
+    const imgId = localStorage.getItem('selectedImg+Id')
+    if (imgId) gMeme.selectedImgId = +imgId
+
     renderMeme()
     resizeCanvas()
 }
 
 function renderMeme() {
-    const meme = getGmeme()
 
-    const img = getImg(meme.selectedImgId)
+    // let meme = localStorage.getItem(`${gMeme.selectedImgId}`)
+    // console.log(meme)
+    let imgId = gMeme.selectedImgId
+
+    if (!imgId) {
+        imgId = +localStorage.getItem('selectedImgId')
+        if (!imgId) return
+    }
+
+    const img = getImg(imgId)
+
     const elImg = new Image()
     elImg.src = img.url
 
     elImg.onload = () => {
-        gCtx.clearRect(0, 0, gElCanvas.width, gElCanvas.height)
+        const aspectRatio = elImg.naturalWidth / elImg.naturalHeight
+        gElCanvas.height = gElCanvas.width / aspectRatio
+        gElCanvas.width = 400
 
-        gElCanvas.height = (elImg.naturalHeight / elImg.naturalWidth) * gElCanvas.width
-        gElCanvas.width = (elImg.naturalWidth / elImg.naturalHeight) * gElCanvas.height
-       
-       
         gCtx.drawImage(elImg, 0, 0, gElCanvas.width, gElCanvas.height)
         drawAllTextLines()
     }
 
 }
 
+
 function drawAllTextLines() {
     const meme = getGmeme()
+
     const selectedLine = meme.lines[meme.selectedLineIdx]
     console.log(selectedLine)
 
@@ -58,13 +72,15 @@ function drawText(line) {
 }
 
 function onSetLineTxt(txt) {
-setLineTxt(txt)
-renderMeme()
+    setLineTxt(txt)
+    renderMeme()
 }
 
-function onSetImg() {
-    setImg()
-    renderMeme()
+function onImgSelect(imgId) {
+    setImg(imgId)
+    window.location.href = 'meme.index.html'
+    renderMeme(imgId)
+
 }
 
 

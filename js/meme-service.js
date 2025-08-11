@@ -1,5 +1,4 @@
 'use strict'
-
 var gImgs = [{ id: 1, url: 'img/1.jpg', keywords: ['funny', 'cat'] }]
 var gMeme = {
     selectedImgId: 1,
@@ -14,6 +13,7 @@ var gMeme = {
     ]
 }
 var gKeywordSearchCountMap = { 'funny': 12, 'cat': 16, 'baby': 2 }
+var storageMemes = `${gMeme.selectedImgId}`
 
 
 function _makeGimgs() {
@@ -38,14 +38,13 @@ function getgImg() {
     return gImgs
 }
 
-function addImgs() {
-    gImgs.forEach
+function _saveMeme() {
+  saveToStorage(storageMemes, gMeme)
 }
 
-
-function getImg(id) {
-    const img = gImgs.find(img => img.id === id)
-    return img
+function getImg(imgId) {
+  
+    return gImgs.find(img => img.id === imgId) 
 }
 
 function setLineTxt(txt) {
@@ -54,6 +53,7 @@ function setLineTxt(txt) {
     console.log(gMeme)
 }
 
-function setImg() {
-    
+function setImg(imgId) {
+    gMeme.selectedImgId = imgId
+    localStorage.setItem('selectedImgId', imgId)
 }

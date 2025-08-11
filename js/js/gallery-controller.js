@@ -7,12 +7,13 @@ function onInit1() {
 function renderGallery() {
     let strHTML = ''
     gImgs = getgImg()
+    console.log(gImgs)
 
     const elImgContainer = document.querySelector('.img-container')
-    strHTML = gImgs.map(img => 
-        `<img onclick="onSetImg('${img.id}')"src="${img.url}">`
+    strHTML = gImgs.map((img) => 
+        `<img onclick="onImgSelect(${img.id})"src="${img.url}">`
     ).join('')
-    console.log(strHTML)
+   
     elImgContainer.innerHTML = strHTML
 
 }
