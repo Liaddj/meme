@@ -4,20 +4,16 @@ let gCtx
 
 
 
-function onInit2() {
-    gElCanvas = document.querySelector('.canvas')
-    gCtx = gElCanvas.getContext('2d')
-    getgImg()
 
-    const imgId = localStorage.getItem('selectedImgId')
-    if (imgId) gMeme.selectedImgId = +imgId
-
-    renderMeme()
-    resizeCanvas()
-}
 
 function renderMeme() {
+    getCanvas()
+    getGctx()
 
+    addHidden('.gallery-layout')
+    removeHidden('.editory')
+
+    resizeCanvas()
     // let meme = localStorage.getItem(`${gMeme.selectedImgId}`)
     // console.log(meme)
     let imgId = gMeme.selectedImgId
@@ -35,14 +31,23 @@ function renderMeme() {
     elImg.onload = () => {
         const aspectRatio = elImg.naturalWidth / elImg.naturalHeight
         gElCanvas.height = gElCanvas.width / aspectRatio
-        gElCanvas.width = 400
-
+        getGctx()
+        gCtx.clearRect(0, 0, gElCanvas.width, gElCanvas.height)
         gCtx.drawImage(elImg, 0, 0, gElCanvas.width, gElCanvas.height)
         drawAllTextLines()
     }
 
 }
 
+function getCanvas() {
+    gElCanvas = document.querySelector('.canvas')
+    return gElCanvas
+}
+
+function getGctx() {
+    gCtx = gElCanvas.getContext('2d')
+    return gCtx
+}
 
 function drawAllTextLines() {
     const meme = getGmeme()
@@ -78,7 +83,7 @@ function onSetLineTxt(txt) {
 
 function onImgSelect(imgId) {
     setImg(imgId)
-    window.location.href = 'meme.index.html'
+    
     renderMeme(imgId)
 
 }

@@ -9,21 +9,31 @@
     <link rel="stylesheet" href="main.css">
 </head>
 
-<body  onload="onInit2()">
+<body onload="onInit()">
 
-     <header class="main-header full main-layout">
+    <header class="main-header full main-layout">
         <div class="inner-container flex align-center">
             <div class="logo">MEME GENERATOR</div>
             <nav class="main-nav">
                 <ul class="main-nav-list clean-list flex">
-                     <li><a href="meme.index.html">THE GENERATOR</a></li>
-                    <li><a href="index.html">GALLERY</a></li>
+                    <li onclick="toggleHidden('.editory','.gallery-layout')">THE GENERATOR</li>
+                    <li onclick="toggleHidden('.editory','.gallery-layout')">GALLERY</li>
                 </ul>
             </nav>
             <!-- <button class="btn-toggle-menu" type="button" onclick="toggleMenu()">☰</button> -->
         </div>
     </header>
-    <div class="main-layout flex ">
+
+    <div class="gallery-layout grid ">
+
+        <section class="gallery-container flex ">
+            <div class="img-container flex ">
+            </div>
+        </section>
+
+    </div>
+
+    <div class="main-layout editory flex hidden">
 
         <section class="editor grid">
 
@@ -44,11 +54,12 @@
 
 
     <script src="js/localstorage.service.js"></script>
-
+    <script src="js/util.js"></script>
+    
     <script src="js/meme-controller.js"></script>
     <script src="js/meme-service.js"></script>
 
-   <script src="js/gallery-controller.js"></script>
+    <script src="js/gallery-controller.js"></script>
     <script src="js/gallery-service.js"></script>
 
 

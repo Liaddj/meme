@@ -1,7 +1,7 @@
 
 
 
-.main-nav .main-nav-list a {
+.main-nav .main-nav-list li {
     text-decoration: none;
     text-transform: uppercase;
 
@@ -13,7 +13,7 @@
 }
 
 
-.main-nav li>a:hover {
+.main-nav li:hover {
     color: var(--hover-color--1);
     box-shadow: inset 0px -1px 0px var(--hover-color--1);
    

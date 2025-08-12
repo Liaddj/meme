@@ -1,6 +1,6 @@
 'use strict'
 
-function onInit1() {
+function onInit() {
     renderGallery()
 }
 
