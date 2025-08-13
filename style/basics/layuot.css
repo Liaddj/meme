@@ -8,12 +8,12 @@
 
 .editor {
     gap: 50px;
-   
+    align-items: flex-start;
 }
 
 
 /* gallery */
 
 .gallery-page-layout {
-  gap: 10px;
+    gap: 10px;
 }

@@ -11,10 +11,10 @@ function renderMeme() {
     getCanvas()
     getGctx()
 
+
     addHidden('.gallery-layout')
     removeHidden('.editory')
 
-    resizeCanvas()
 
     let imgId = gMeme.selectedImgId
 
@@ -27,14 +27,17 @@ function renderMeme() {
 
     const elImg = new Image()
     elImg.src = img.url
-   
+
 
     elImg.onload = () => {
+        resizeCanvas()
 
 
         gCtx.clearRect(0, 0, gElCanvas.width, gElCanvas.height)
-        gCtx.drawImage(elImg, 0, 0, gElCanvas.width, gElCanvas.height )
+        gCtx.drawImage(elImg, 0, 0, gElCanvas.width, gElCanvas.height)
         drawAllTextLines()
+
+
     }
     saveMeme(imgId)
     currMemeId = imgId
@@ -57,30 +60,18 @@ function getGctx() {
 
 function drawAllTextLines() {
     const meme = getGmeme()
+    meme.lines.forEach((line,) => {
+        gCtx.font = `bold ${line.size}px Arial`
+        gCtx.fillStyle = line.color
+        gCtx.strokeStyle = 'black'
+        gCtx.lineWidth = 2
+        gCtx.textAlign = 'center'
 
-    const selectedLine = meme.lines[meme.selectedLineIdx]
-
-
-    if (selectedLine && selectedLine.txt) {
-        drawText(selectedLine)
-    }
+        gCtx.fillText(line.txt, line.x, line.y)
+        gCtx.strokeText(line.txt, line.x, line.y)
+    })
 }
 
-function drawText(line) {
-    const { txt, size, color } = line
-
-    gCtx.font = `${size}px Arial`
-    gCtx.fillStyle = color
-    gCtx.strokeStyle = 'black'
-    gCtx.lineWidth = 2
-    gCtx.textAlign = 'center'
-
-    const x = gElCanvas.width / 2
-    const y = gElCanvas.height / 2
-
-    gCtx.strokeText(txt, x, y)
-    gCtx.fillText(txt, x, y)
-}
 
 function onSetLineTxt(txt) {
     setLineTxt(txt)
@@ -109,17 +100,27 @@ function onSetLineColor(val) {
     renderMeme()
 }
 
-
-
-
-
-
-
-
+function onDecreaseFont() {
+    const meme = getGmeme()
+    meme.lines[meme.selectedLineIdx].size -= 3
+    saveToStorage(currMemeId, meme)
+    renderMeme()
+}
+function onIncreaseFont() {
+    const meme = getGmeme()
+    meme.lines[meme.selectedLineIdx].size += 3
+    saveToStorage(currMemeId, meme)
+    renderMeme()
+}
 
 
 function resizeCanvas() {
-    const elContainer = document.querySelector('.canvas-container')
-    gElCanvas.width = elContainer.offsetWidth
-    gElCanvas.height = elContainer.offsetHeight
+    gElCanvas.width = 500
+    gElCanvas.height = 500
 }
+
+function onAddLine() {
+    addLine()
+    renderMeme()
+}
+

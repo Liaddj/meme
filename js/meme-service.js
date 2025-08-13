@@ -8,7 +8,9 @@ var gMeme = {
             txt: 'I sometimes eat Falafel'
             ,
             size: 20,
-            color: 'red'
+            color: 'red',
+            x: 250,
+            y: 50,
         }
     ]
 }
@@ -17,14 +19,14 @@ var storageMemes = `${gMeme.selectedImgId}`
 
 
 function _makeGimgs() {
-  
-  for (let i = 2; i <= 18; i++) {
-    gImgs.push({
-      id: i,
-      url: `img/${i}.jpg`,
-      keywords: []
-    })
-  }
+
+    for (let i = 2; i <= 18; i++) {
+        gImgs.push({
+            id: i,
+            url: `img/${i}.jpg`,
+            keywords: []
+        })
+    }
 }
 
 
@@ -34,32 +36,50 @@ function getGmeme() {
 }
 
 function getgImg() {
-     _makeGimgs()
+    _makeGimgs()
     return gImgs
 }
 
-function SetLineColor(color){
-gMeme.lines[gMeme.selectedLineIdx].color = color
+function SetLineColor(color) {
+    gMeme.lines[gMeme.selectedLineIdx].color = color
 }
 
 function getImg(imgId) {
-  
-    return gImgs.find(img => img.id === imgId) 
+
+    return gImgs.find(img => img.id === imgId)
 }
 
 function setLineTxt(txt) {
-    console.log(txt)
-    gMeme.lines[0].txt = txt
-    console.log(gMeme)
+    gMeme.lines[gMeme.selectedLineIdx].txt = txt
 }
 
 function setImg(imgId) {
     gMeme.selectedImgId = imgId
-    localStorage.setItem('selectedMemeId', imgId)
+    localStorage.setItem('selectedImgId', imgId)
+}
+
+function addLine() {
+    const elCanvas = getCanvas()
+    if (gMeme.lines.length < 2) {
+        gMeme.lines.push(
+            {
+                txt: '---------',
+                size: 20,
+                color: 'red',
+                x: elCanvas.width / 2,
+                y: elCanvas.height - 50,
+            }
+        )
+        updateselectedLineIdx()
+    }
 }
 
 
 
 function findImg(id) {
     return gImgs.find(img => img.id === id)
+}
+
+function updateselectedLineIdx() {
+    gMeme.selectedLineIdx = 1
 }
