@@ -1,7 +1,23 @@
-
-
-
 .actions-container {
+    gap: 10px;
+    justify-content: space-between;
     border: 10px solid black;
-    
 }
+
+.actions-container>*:not(:first-child) {
+    margin-bottom: 10px;
+}
+
+.actions-container :first-child {
+    margin-top: 10px;
+}
+
+.btn-creative {
+    flex-wrap: wrap;
+    justify-content: space-around;
+
+    width: min-content;
+    padding: 5px;
+    background-color: aqua;
+}
+

@@ -1,6 +1,7 @@
 'use strict'
 let gElCanvas
 let gCtx
+var currMemeId
 
 
 
@@ -14,8 +15,7 @@ function renderMeme() {
     removeHidden('.editory')
 
     resizeCanvas()
-    // let meme = localStorage.getItem(`${gMeme.selectedImgId}`)
-    // console.log(meme)
+
     let imgId = gMeme.selectedImgId
 
     if (!imgId) {
@@ -36,7 +36,13 @@ function renderMeme() {
         gCtx.drawImage(elImg, 0, 0, gElCanvas.width, gElCanvas.height)
         drawAllTextLines()
     }
+    saveMeme(imgId)
+    currMemeId = imgId
+}
 
+function saveMeme(id) {
+    const meme = getGmeme()
+    saveToStorage(id, meme)
 }
 
 function getCanvas() {
@@ -83,12 +89,18 @@ function onSetLineTxt(txt) {
 
 function onImgSelect(imgId) {
     setImg(imgId)
-    
+
     renderMeme(imgId)
 
 }
 
+function downloadImg(elLink) {
+    const img = findImg(currMemeId)
+    const dataUrl = gElCanvas.toDataURL()
 
+    elLink.href = dataUrl
+    elLink.download = 'my-image.jpg'
+}
 
 
 

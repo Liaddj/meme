@@ -38,9 +38,7 @@ function getgImg() {
     return gImgs
 }
 
-function _saveMeme() {
-  saveToStorage(storageMemes, gMeme)
-}
+
 
 function getImg(imgId) {
   
@@ -56,4 +54,10 @@ function setLineTxt(txt) {
 function setImg(imgId) {
     gMeme.selectedImgId = imgId
     localStorage.setItem('selectedMemeId', imgId)
+}
+
+
+
+function findImg(id) {
+    return gImgs.find(img => img.id === id)
 }
