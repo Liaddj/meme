@@ -1,4 +1,6 @@
 'use strict'
+
+let elCanvas = getCanvas()
 var gImgs = [{ id: 1, url: 'img/1.jpg', keywords: ['funny', 'cat'] }]
 var gMeme = {
     selectedImgId: 1,
@@ -9,8 +11,8 @@ var gMeme = {
             ,
             size: 20,
             color: 'red',
-            x: 250,
-            y: 50,
+            x: elCanvas.width / 2,
+            y: elCanvas.height / 2,
         }
     ]
 }
@@ -59,7 +61,6 @@ function setImg(imgId) {
 }
 
 function addLine() {
-    const elCanvas = getCanvas()
     if (gMeme.lines.length < 2) {
         gMeme.lines.push(
             {
@@ -71,9 +72,11 @@ function addLine() {
             }
         )
         updateselectedLineIdx()
+        const elInput = getTxtInput()
+        elInput.value = gMeme.lines[gMeme.selectedLineIdx].txt
+        elInput.placeholder = ''
     }
 }
-
 
 
 function findImg(id) {
@@ -82,4 +85,8 @@ function findImg(id) {
 
 function updateselectedLineIdx() {
     gMeme.selectedLineIdx = 1
+}
+
+function getTxtInput() {
+    return document.querySelector('.txt-input')
 }

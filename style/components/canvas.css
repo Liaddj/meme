@@ -1,7 +1,11 @@
-
-
-
-
 .canvas-container {
+    width: min(90vw, 600px);
     border: 10px solid black;
+    border-radius: 15px;
+    margin-top: 10px;
+}
+
+.canvas {
+    width: 100%;
+    display: block;
 }

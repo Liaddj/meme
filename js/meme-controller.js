@@ -59,8 +59,8 @@ function getGctx() {
 }
 
 function drawAllTextLines() {
-    const meme = getGmeme()
-    meme.lines.forEach((line,) => {
+    const meme = loadFromStorage(currMemeId)
+    meme.lines.forEach((line, idx) => {
         gCtx.font = `bold ${line.size}px Arial`
         gCtx.fillStyle = line.color
         gCtx.strokeStyle = 'black'
@@ -72,6 +72,14 @@ function drawAllTextLines() {
     })
 }
 
+function onSwitchLine() {
+    const meme = getGmeme()
+    meme.selectedLineIdx = meme.selectedLineIdx === 0 ? 1 : 0
+    const elInput = getTxtInput()
+    elInput.value = gMeme.lines[gMeme.selectedLineIdx].txt
+    elInput.placeholder = ''
+    renderMeme()
+}
 
 function onSetLineTxt(txt) {
     setLineTxt(txt)
@@ -113,6 +121,20 @@ function onIncreaseFont() {
     renderMeme()
 }
 
+function onShowLineData(ev) {
+    const { offsetX, offsetY } = ev
+    const meme = getGmeme()
+
+    const clickedLine = meme.lines.find(line => {
+        return (
+            offsetX >= line.x && offsetX <= line.x + line.txt.length
+
+        )
+    })
+    console.log(clickedLine)
+
+
+}
 
 function resizeCanvas() {
     gElCanvas.width = 500

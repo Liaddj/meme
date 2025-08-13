@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="main.css">
 </head>
 
-<body onload="onInit()">
+<body  onload="onInit()">
 
     <header class="main-header full main-layout">
         <div class="inner-container flex align-center">
@@ -33,26 +33,26 @@
 
     </div>
 
-    <div class="main-layout editory flex hidden">
+    <div class="main-layout editory flex align-center hidden">
 
         <section class="editor flex">
 
             <div class="canvas-container">
 
-                <canvas class="canvas" width="500" height="500">
+                <canvas class="canvas" width="500" height="500" onclick="onShowLineData(event)">
 
                 </canvas>
 
             </div>
 
             <div class="actions-container flex column align-center ">
-                <input type="text" oninput="onSetLineTxt(value)">
+                <input class="txt-input" type="text" oninput="onSetLineTxt(value)" placeholder="Text" >
 
                 <div class="btn-txt">
                     <img class="icon" src="ICONS/add.png" title="Add-Line"
                         onclick="onAddLine()" alt="Add-Line" />
                     <img class="icon" src="ICONS/up-and-down-opposite-double-arrows-side-by-side.png" title="Add-Line"
-                        onclick="onSwitchLine()" alt="Add-Line" />
+                        onclick="onSwitchLine()" alt="Switch-Line" />
                     
                     
                     

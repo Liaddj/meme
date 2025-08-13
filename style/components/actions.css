@@ -1,8 +1,12 @@
 .actions-container {
+    width: min(50vw, 400px);
     gap: 10px;
     justify-content: space-between;
     border: 10px solid black;
-    padding: 15px;
+    padding: 10px;
+    border-radius: 15px;
+    margin-top: 10px;
+    align-self: center;
 }
 
 .actions-container>*:not(:first-child) {
@@ -14,12 +18,14 @@
 }
 
 .btn-creative {
+    
     flex-wrap: wrap;
-    justify-content: space-around;
-
-    width: min-content;
+    justify-content: center;
+    gap: 5px;
+    
+    width: 40%;
     padding: 5px;
     background-color: aqua;
-    border-radius: 10px;
+    border-radius: 15px;
 }
 
