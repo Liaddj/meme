@@ -17,15 +17,13 @@
     margin-top: 10px;
 }
 
-.btn-creative {
-    
+.btn-creative {   
     flex-wrap: wrap;
     justify-content: center;
     gap: 5px;
-    
-    width: 40%;
-    padding: 5px;
-    background-color: aqua;
+    width: 80%;
+    padding: 7px;
+    background-color: var(--hover-color--1);
     border-radius: 15px;
 }
 

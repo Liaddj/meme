@@ -1,20 +1,41 @@
 /* mobile first  */
 
 @media (max-width: 1075px) {
+    .logo {
+        font-weight: bolder;
+        font-size: 0.91rem;
+    }
+    li {
+        font-size: 0.8rem;
+    }
 
     .editor {
         flex-direction: column;
         align-items: center;
+        gap: 2px;
     }
 
     .canvas {
         width: 40;
         height: 70;
     }
+
+    img {
+        max-width: 5em;
+    }
+
+
+    .main-header .inner-container {
+
+        padding: 25px;
+        height: 100%;
+    }
+
+
 }
 
 @media (max-width: 1300px) {
     .actions-container {
-    width: min(50vw, 400px); 
+        width: min(60vw, 400px);
     }
 }

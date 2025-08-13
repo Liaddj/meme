@@ -32,13 +32,13 @@ h1 {
 }
 
 li {
-    margin-right: 15px;
+    margin-right: 13px;
 }
 
 button {
     max-width: 20px;
     padding: 10px 20px;
-    border: 2px solid #333;
+    border: 2px solid var(--txt-color--1);
     border-radius: 8px;
     background-color: transparent;
     color: #333;
@@ -61,8 +61,25 @@ button:hover {
     cursor: pointer;
     transition: 0.3s;
     padding: 2px;
+    border: 2px solid var(--txt-color--1);
 }
 
 .icon:hover {
     transform: scale(1.2);
+}
+
+input {
+    max-width: 50%;
+    border: 1px solid var(--txt-color--1);
+    border-radius: 5px;
+    color: var(--txt-color--1);
+}
+
+a {
+    background-color: var(--primary-color--1);
+    color: var(--txt-color--1);
+    border-radius: 5px;
+    border: 1px solid var(--txt-color--1);
+    padding: 4px;
+    text-decoration: none;
 }
