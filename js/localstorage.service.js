@@ -3,7 +3,7 @@
 
 function saveToStorage(key, val) {
     const json = JSON.stringify(val)
-    console.log(json)
+    
     localStorage.setItem(key, json)
 
 }

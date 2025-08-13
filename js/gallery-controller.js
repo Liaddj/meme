@@ -7,7 +7,7 @@ function onInit() {
 function renderGallery() {
     let strHTML = ''
     gImgs = getgImg()
-    console.log(gImgs)
+    
 
     const elImgContainer = document.querySelector('.img-container')
     strHTML = gImgs.map((img) => 

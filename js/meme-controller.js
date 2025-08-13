@@ -27,13 +27,13 @@ function renderMeme() {
 
     const elImg = new Image()
     elImg.src = img.url
+   
 
     elImg.onload = () => {
-        const aspectRatio = elImg.naturalWidth / elImg.naturalHeight
-        gElCanvas.height = gElCanvas.width / aspectRatio
-        getGctx()
+
+
         gCtx.clearRect(0, 0, gElCanvas.width, gElCanvas.height)
-        gCtx.drawImage(elImg, 0, 0, gElCanvas.width, gElCanvas.height)
+        gCtx.drawImage(elImg, 0, 0, gElCanvas.width, gElCanvas.height )
         drawAllTextLines()
     }
     saveMeme(imgId)
@@ -59,7 +59,7 @@ function drawAllTextLines() {
     const meme = getGmeme()
 
     const selectedLine = meme.lines[meme.selectedLineIdx]
-    console.log(selectedLine)
+
 
     if (selectedLine && selectedLine.txt) {
         drawText(selectedLine)
@@ -103,7 +103,11 @@ function downloadImg(elLink) {
 }
 
 
-
+function onSetLineColor(val) {
+    SetLineColor(val)
+    saveMeme(currMemeId)
+    renderMeme()
+}
 
 
 

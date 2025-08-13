@@ -38,7 +38,9 @@ function getgImg() {
     return gImgs
 }
 
-
+function SetLineColor(color){
+gMeme.lines[gMeme.selectedLineIdx].color = color
+}
 
 function getImg(imgId) {
   

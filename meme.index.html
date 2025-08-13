@@ -35,7 +35,7 @@
 
     <div class="main-layout editory flex hidden">
 
-        <section class="editor grid">
+        <section class="editor flex">
 
             <div class="canvas-container">
 
@@ -53,7 +53,7 @@
                 </div>
                 <div class="btn-creative flex">
                     <label for="colorPicker"></label>
-                    <input type="color" id="colorPicker" name="colorPicker">
+                    <input type="color" id="colorPicker" name="colorPicker" style="font-weight:bold;" onchange="onSetLineColor(value)">
 
                     <button>2</button>
                     <button>3</button>
