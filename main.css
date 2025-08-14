@@ -16,6 +16,8 @@
 @import url('style/components/gallery-container.css');
 @import url('style/components/main-nav.css');
 @import url('style/components/logo.css');
+@import url('style/components/btn-download-fb.css');
+@import url('style/components/footer.css');
 
 /* MQ */
 @import url('style/setup/mq.css');

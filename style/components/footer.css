@@ -1,0 +1,35 @@
+footer {
+    margin-top: 20px;
+    background-color: var(--primary-color--1);
+    padding-top: 5px;
+    align-self: flex-end;
+}
+
+
+footer img {
+    height: 30px;
+    width: 30px;
+    border: none;
+
+}
+
+footer .linkdin {
+    background-color: #3481cf;
+}
+
+footer .github {
+    background-color: #ffffff;
+}
+
+.footer-links {
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+footer a {
+    transition: 0.3s scale;
+}
+
+footer a:hover {
+    scale: 1.05;
+}

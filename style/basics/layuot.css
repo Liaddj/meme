@@ -1,7 +1,6 @@
 /* meme generator */
 .main-layout {
     flex-direction: column;
-
 }
 
 .editor {
@@ -12,6 +11,8 @@
 
 /* gallery */
 
-.gallery-page-layout {
+.gallery-layout {
     gap: 10px;
+    place-items: center;
 }
+

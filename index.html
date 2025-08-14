@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="main.css">
 </head>
 
-<body  onload="onInit()">
+<body onload="onInit()" class="grid">
 
     <header class="main-header full main-layout">
         <div class="inner-container flex align-center">
@@ -20,11 +20,12 @@
                     <li onclick="toggleHidden('.editory','.gallery-layout')">GALLERY</li>
                 </ul>
             </nav>
-          
+
         </div>
     </header>
 
-    <div class="gallery-layout grid ">
+    <div class="gallery-layout flex column ">
+        <h2>Choose your meme, champ</h2>
 
         <section class="gallery-container flex ">
             <div class="img-container flex ">
@@ -46,45 +47,64 @@
             </div>
 
             <div class="actions-container flex column align-center ">
-                <input class="txt-input" type="text" oninput="onSetLineTxt(value)" placeholder="Text" >
+                <input class="txt-input" type="text" oninput="onSetLineTxt(value)" placeholder="Text">
 
                 <div class="btn-txt">
-                    <img class="icon" src="ICONS/add.png" title="Add-Line"
-                        onclick="onAddLine()" alt="Add-Line" />
+                    <img class="icon" src="ICONS/add.png" title="Add-Line" onclick="onAddLine()" alt="Add-Line" />
                     <img class="icon" src="ICONS/up-and-down-opposite-double-arrows-side-by-side.png" title="Add-Line"
                         onclick="onSwitchLine()" alt="Switch-Line" />
-                    
-                    
-                    
+                    <img class="icon" src="ICONS/trash.png" title="Add-Line" onclick="onDeleteLine()"
+                        alt="Switch-Line" />
+
+
+
                 </div>
                 <div class="btn-creative flex">
                     <label for="colorPicker"></label>
                     <input type="color" id="colorPicker" name="colorPicker" style="font-weight:bold;"
-                    onchange="onSetLineColor(value)">
-                    
+                        onchange="onSetLineColor(value)">
+
                     <img class="icon" src="ICONS/decrease font - icon.png" title="Decrease-Font"
                         onclick="onDecreaseFont()" alt="Decrease font" />
                     <img class="icon" src="ICONS/increase font - icon.png" title="Decrease-Font"
                         onclick="onIncreaseFont()" alt="Decrease font" />
-                    
-                    
+
+
                 </div>
-                <div class="btn-download-fb">
-                    <button>1</button>
+                <div class="btn-download flex">
+
                     <a href="#" onclick="downloadImg(this)" download="myImage.jpg">
                         <i class="fas fa-file"></i>
                         Download
                     </a>
+                    <form class="form" action="" method="POST" enctype="multipart/form-data"
+                        onsubmit="onUploadImg(event)">
+                        <input name="img" id="imgData" type="hidden" />
+                        <button class="btn" type="submit">facebook</button>
+                    </form>
+
                 </div>
             </div>
         </section>
 
     </div>
 
+    <footer class="main-footer flex align-center column">
+        <p>© 2025 Liad Djaldetty. All rights reserved.</p>
+        <div class="footer-links flex ">
+            <a href="https://www.linkedin.com/in/liad-djaldetty-33b0b623a" class="linkdin" target="_blank">
+                <img src="ICONS/linkedin-logo.png" alt="linkedin">
+            </a>
+            <a href="https://github.com/Liaddj" class="github" target="_blank">
+                <img src="ICONS/github-logo.png" alt="github">
+            </a>
 
+        </div>
+    </footer>
 
     <script src="js/localstorage.service.js"></script>
     <script src="js/util.js"></script>
+    <script src="js/upload.service.js"></script>
 
     <script src="js/meme-controller.js"></script>
     <script src="js/meme-service.js"></script>
