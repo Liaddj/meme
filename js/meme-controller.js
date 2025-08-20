@@ -61,18 +61,18 @@ function getGctx() {
 
 function drawAllTextLines() {
     const meme = loadFromStorage(currMemeId)
-    meme.lines.forEach((line, idx) => {
+    meme.lines.forEach((line) => {
         gCtx.font = `bold ${line.size}px meme`
         gCtx.fillStyle = line.color
         gCtx.strokeStyle = 'black'
         gCtx.lineWidth = 2
-        gCtx.textAlign = 'center'
+        gCtx.textAlign = line.align
 
         gCtx.fillText(line.txt, line.x, line.y)
         gCtx.strokeText(line.txt, line.x, line.y)
         meme.lines[meme.selectedLineIdx].txtSize = gCtx.measureText(meme.lines[meme.selectedLineIdx].txt).width
         const size = meme.lines[meme.selectedLineIdx].txtSize
-        console.log(size)
+       
         // createRect(line.x, line.y, size, 'red')
     })
 }
@@ -101,9 +101,7 @@ function onSetLineTxt(txt) {
 
 function onImgSelect(imgId) {
     setImg(imgId)
-
     renderMeme(imgId)
-
 }
 
 function downloadImg(elLink) {
@@ -117,11 +115,14 @@ function downloadImg(elLink) {
 
 function onDeleteLine() {
     const meme = getGmeme()
-     meme.lines.splice(meme.selectedLineIdx,1)
-     meme.selectedLineIdx = meme.selectedLineIdx === 0 ? 1 : 0
-     const elInput = getTxtInput()
-     elInput.value = meme.lines[meme.selectedLineIdx].txt
-     renderMeme()
+    if (meme.lines[meme.selectedLineIdx].txt.length > 0) {
+        meme.lines.splice(meme.selectedLineIdx,1)
+        meme.selectedLineIdx = meme.selectedLineIdx === 0 ? 1 : 0
+        const elInput = getTxtInput()
+        console.log(meme.lines[meme.selectedLineIdx].txt)
+        elInput.value = meme.lines[meme.selectedLineIdx].txt 
+        renderMeme()
+    }
 }
 
 function onSetLineColor(val) {
@@ -168,6 +169,27 @@ function onAddLine() {
     renderMeme()
 }
 
+function onAlignRightLine() {
+    const meme = getGmeme()
+    meme.lines[meme.selectedLineIdx].align = 'right'
+    renderMeme()
+}
+
+function onAlignLeftLine() {
+    const meme = getGmeme()
+    meme.lines[meme.selectedLineIdx].align = 'left'
+    renderMeme()
+}
+
+function onAlignCenterLine() {
+    const meme = getGmeme()
+    meme.lines[meme.selectedLineIdx].align = 'center'
+    renderMeme()
+}
+
+
+
+
 function onUploadToFB(url) {
     // console.log('url:', url)
     window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}&t=${url}`)
@@ -195,3 +217,4 @@ function onUploadImg(ev) {
 
     uploadImg(canvasData, onSuccess)
 }
+

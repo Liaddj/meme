@@ -71,7 +71,7 @@ button:hover {
 }
 
 input {
-    max-width: 50%;
+    max-width: 55%;
     border: 1px solid var(--txt-color--1);
     border-radius: 5px;
     color: var(--txt-color--1);

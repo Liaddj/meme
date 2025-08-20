@@ -9,5 +9,5 @@
     cursor: pointer;
     box-shadow:
         inset 20px 10px 20px, 0 0 15px var(--hover-color--1);
-    transform: scale(1.05);
+    transform: scale(1.1);
 }

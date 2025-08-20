@@ -5,6 +5,7 @@
         font-weight: bolder;
         font-size: 0.91rem;
     }
+
     li {
         font-size: 0.8rem;
     }
@@ -31,10 +32,15 @@
         height: 100%;
     }
 
-     .gallery-layout h2 {
-    text-align: center;
-    font-size: 1rem;
-}
+    .gallery-layout h2 {
+        text-align: center;
+        font-size: 1.2rem;
+    }
+
+    .gallery-container {
+        max-width: 70vw;
+
+    }
 
 
 }
@@ -43,17 +49,26 @@
     .actions-container {
         width: min(60vw, 400px);
     }
+
     .gallery-layout h2 {
-    text-align: center;
-    font-size: 2.5rem;
+        text-align: center;
+        font-size: 2.5rem;
+    }
 }
-}
+
 @media (min-width: 1100px) {
     .actions-container {
         width: min(60vw, 400px);
     }
+
     .gallery-layout h2 {
-    text-align: center;
-    font-size: 2rem;
-}
+        text-align: center;
+        font-size: 2rem;
+    }
+
+
+    .gallery-container {
+        max-width: 65vw;
+
+    }
 }

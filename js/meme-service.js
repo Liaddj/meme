@@ -7,13 +7,13 @@ var gMeme = {
     selectedLineIdx: 0,
     lines: [
         {
-            txt: 'I sometimes eat Falafel'
-            ,
+            txt: 'I sometimes eat Falafel' ,
             size: 40,
             color: 'white',
             x: elCanvas.width / 2,
             y: elCanvas.height / 2,
             txtSize: 0,
+            align: 'center'
         }
     ]
 }

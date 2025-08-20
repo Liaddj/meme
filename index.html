@@ -26,6 +26,7 @@
 
     <div class="gallery-layout flex column ">
         <h2>Choose your meme, champ</h2>
+        <input type="text" class="search" placeholder="Search by keywords" oninput="onSearch(this)">
 
         <section class="gallery-container flex ">
             <div class="img-container flex ">
@@ -55,11 +56,17 @@
                         onclick="onSwitchLine()" alt="Switch-Line" />
                     <img class="icon" src="ICONS/trash.png" title="Add-Line" onclick="onDeleteLine()"
                         alt="Switch-Line" />
+                    <img class="icon" src="ICONS/align-to-right.png" title="right" onclick="onAlignRightLine()"
+                        alt="Switch-Line" />
+                    <img class="icon" src="ICONS/align-to-left.png" title="left" onclick="onAlignLeftLine()"
+                        alt="Switch-Line" />
+                    <img class="icon" src="ICONS/center-text-alignment.png" title="center" onclick="onAlignCenterLine()"
+                        alt="Switch-Line" />
 
 
 
                 </div>
-                <div class="btn-creative flex">
+                <div class="btn-creative flex align-center">
                     <label for="colorPicker"></label>
                     <input type="color" id="colorPicker" name="colorPicker" style="font-weight:bold;"
                         onchange="onSetLineColor(value)">
@@ -71,7 +78,7 @@
 
 
                 </div>
-                <div class="btn-download flex">
+                <div class="btn-download flex align-center">
 
                     <a href="#" onclick="downloadImg(this)" download="myImage.jpg">
                         <i class="fas fa-file"></i>

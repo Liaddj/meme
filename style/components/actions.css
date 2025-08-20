@@ -17,13 +17,41 @@
     margin-top: 10px;
 }
 
-.btn-creative {   
+.btn-creative {
     flex-wrap: wrap;
     justify-content: center;
     gap: 5px;
     width: 80%;
     padding: 7px;
-    background-color: var(--hover-color--1);
+    background-color: var(--primary-color--1);
     border-radius: 15px;
 }
 
+.btn-download {
+    gap: 10px;
+    align-items: center;
+}
+
+.btn-download button {
+    color: var(--txt-color--1);
+    max-width: none;
+    background-color: #1877F2;
+    padding: 5px;
+
+}
+
+.btn-download a {
+    margin: none;
+}
+
+
+
+.actions-container .btn-txt:has(img:hover)>img:not(:hover) {
+    scale: 0.85;
+    opacity: .6;
+}
+
+.actions-container .btn-creative:has(img:hover)>img:not(:hover) {
+    scale: 0.85;
+    opacity: .6;
+}
